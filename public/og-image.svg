@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#1a0e15"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.2" r="0.6">
+      <stop offset="0%" stop-color="#FF6B9D" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#FF6B9D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <text x="80" y="180" fill="#F5B8C8" font-family="Inter, sans-serif" font-size="22" letter-spacing="8" font-weight="600">CRÉATRICE DE VISUELS &amp; CONTENUS INSTAGRAM</text>
+  <text x="80" y="310" fill="#fafafa" font-family="Anton, Bebas Neue, sans-serif" font-size="120" font-weight="700" letter-spacing="-2">MANON ALMU</text>
+  <text x="80" y="400" fill="#FF6B9D" font-family="Anton, Bebas Neue, sans-serif" font-size="64" font-weight="700">DES VISUELS QUI CONVERTISSENT.</text>
+  <text x="80" y="540" fill="#a0a0a0" font-family="Inter, sans-serif" font-size="22">Affiches · Flyers · Instagram — Pour restaurants, coachs &amp; commerces</text>
+</svg>

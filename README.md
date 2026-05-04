@@ -1,0 +1,156 @@
+# Manon Almu — Portfolio
+
+Site portfolio professionnel de **Manon Almu**, créatrice de visuels marketing et contenus
+Instagram. Construit avec Next.js 15, TypeScript, Tailwind CSS v4 et Framer Motion.
+
+→ Production : [manon-almu.fr](https://manon-almu.fr)
+
+---
+
+## Stack
+
+- **Framework** : Next.js 15 (App Router) + React 19
+- **Langage** : TypeScript strict
+- **Styling** : Tailwind CSS v4 (config CSS-first dans `globals.css`)
+- **Animations** : Framer Motion
+- **Polices** : Anton + Inter via `next/font`
+- **Formulaire** : React Hook Form + Zod
+- **Email** : [Resend](https://resend.com) (avec fallback log si pas de clé)
+- **Déploiement** : Vercel
+
+## Démarrage
+
+```bash
+# Cloner et installer
+git clone <repo>
+cd ManonCM
+npm install
+
+# Configurer les variables d'env
+cp .env.local.example .env.local
+# puis éditer .env.local pour ajouter RESEND_API_KEY
+
+# Lancer en dev
+npm run dev
+# → http://localhost:3000
+```
+
+## Scripts
+
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Serveur de développement |
+| `npm run build` | Build de production |
+| `npm run start` | Lance le build de production |
+| `npm run lint` | Vérifie le code avec ESLint |
+| `npm run typecheck` | Vérifie les types TypeScript |
+
+## Structure
+
+```
+src/
+├── app/                    # App Router (pages, API, sitemap, robots, OG)
+│   ├── api/contact/        # POST /api/contact (Resend)
+│   ├── portfolio/
+│   ├── tarifs/
+│   ├── contact/
+│   └── mentions-legales/
+├── components/
+│   ├── layout/             # Nav, Footer
+│   ├── motion/             # FadeInWhenVisible
+│   ├── sections/           # Hero, About, Services, Pricing…
+│   └── ui/                 # Button, ServiceCard, FAQItem…
+├── data/                   # Contenu éditorial (projets, services, tarifs…)
+└── lib/                    # validations Zod, client Resend
+```
+
+## Mettre à jour le contenu
+
+Tout le contenu est dans `src/data/*.ts`. Pas de CMS pour la v1.
+
+### Ajouter un projet au portfolio
+
+1. Ajoute une image dans `public/projects/<slug>.svg` (ou `.jpg`/`.webp`).
+2. Ajoute une entrée dans `src/data/projects.ts` :
+
+```ts
+{
+  slug: "nouveau-projet",
+  title: "Titre du projet",
+  client: "Nom du client",
+  category: "event", // "event" | "fitness" | "food" | "coaching"
+  categoryLabel: "Événementiel",
+  year: "2026",
+  description: "Description courte du projet (1–2 phrases).",
+  cover: "/projects/nouveau-projet.svg",
+  size: "wide", // "wide" | "tall" | "square" — pilote la grille
+}
+```
+
+Les 6 premiers projets de la liste apparaissent sur la homepage, tous sur `/portfolio`.
+
+### Modifier les tarifs
+
+Édite `src/data/pricing.ts` :
+
+- `packs` : les 3 cards en haut de la page tarifs.
+- `unitItems` : les prestations à l'unité listées plus bas.
+
+### Modifier les services / la méthode / la FAQ / les témoignages
+
+- `src/data/services.ts`
+- `src/data/method.ts`
+- `src/data/faq.ts`
+- `src/data/testimonials.ts`
+
+## Configurer Resend (formulaire de contact)
+
+1. Crée un compte sur [resend.com](https://resend.com) (gratuit jusqu'à 3000 emails/mois).
+2. Ajoute le domaine `manon-almu.fr` dans Resend et configure les enregistrements DNS.
+3. Récupère ta clé API (`re_xxx…`).
+4. Dans Vercel → Settings → Environment Variables, ajoute :
+   - `RESEND_API_KEY` : ta clé Resend
+   - `CONTACT_EMAIL` : `almudever.manon@gmail.com`
+   - `NEXT_PUBLIC_SITE_URL` : `https://manon-almu.fr`
+5. Mets à jour le champ `from:` dans `src/app/api/contact/route.ts` une fois le domaine vérifié.
+
+> **Sans clé API** : le formulaire s'envoie quand même (sans erreur côté UX), mais le message
+> est juste loggé côté serveur. Pratique en dev.
+
+## Déploiement Vercel
+
+1. Push sur GitHub.
+2. Importe le repo dans [Vercel](https://vercel.com/new).
+3. Ajoute les variables d'environnement (voir ci-dessus).
+4. Déploie. Vercel détecte automatiquement Next.js 15.
+5. Connecte le domaine `manon-almu.fr` dans Settings → Domains.
+
+## Design system
+
+Couleurs et tokens définis dans `src/app/globals.css` (Tailwind v4 `@theme`) :
+
+- `background` `#0a0a0a` · `surface` `#141414` · `border` `#2a2a2a`
+- `accent` `#ff6b9d` · `accent-soft` `#f5b8c8`
+- Display : Anton · Body : Inter
+
+Pour modifier, édite directement les variables dans `globals.css`.
+
+## SEO
+
+- Metadata par page (Next 15 conventions)
+- `sitemap.xml` et `robots.txt` auto-générés (`src/app/sitemap.ts`, `src/app/robots.ts`)
+- Schema.org `ProfessionalService` injecté dans le layout
+- Open Graph dynamique généré via `src/app/opengraph-image.tsx`
+- Lang `fr` + `metadataBase` configuré
+
+## Performance & accessibilité
+
+- `next/font` avec `display: swap`
+- Images `next/image` quand applicable
+- `prefers-reduced-motion` respecté (animations désactivées)
+- Focus visible custom sur tous les éléments interactifs
+- Contraste WCAG AA vérifié sur la palette
+
+## Licence
+
+© Manon Almu — Tous droits réservés.
