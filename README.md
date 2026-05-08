@@ -14,8 +14,7 @@ et contenus Instagram. Construit avec Next.js 15, TypeScript, Tailwind CSS v4 et
 - **Styling** : Tailwind CSS v4 (config CSS-first dans `globals.css`)
 - **Animations** : Framer Motion
 - **Polices** : Anton + Inter via `next/font`
-- **Formulaire** : React Hook Form + Zod
-- **Email** : [Resend](https://resend.com) (avec fallback log si pas de clé)
+- **Prise de RDV** : Calendly (embed inline)
 - **Déploiement** : Vercel
 
 ## Démarrage
@@ -28,7 +27,6 @@ npm install
 
 # Configurer les variables d'env
 cp .env.local.example .env.local
-# puis éditer .env.local pour ajouter RESEND_API_KEY
 
 # Lancer en dev
 npm run dev
@@ -103,25 +101,19 @@ Les 6 premiers projets de la liste apparaissent sur la homepage, tous sur `/port
 - `src/data/faq.ts`
 - `src/data/testimonials.ts`
 
-## Configurer Resend (formulaire de contact)
+## Configurer Calendly (prise de rendez-vous)
 
-1. Crée un compte sur [resend.com](https://resend.com) (gratuit jusqu'à 3000 emails/mois).
-2. Ajoute le domaine `makemyvisu.fr` dans Resend et configure les enregistrements DNS.
-3. Récupère ta clé API (`re_xxx…`).
-4. Dans Vercel → Settings → Environment Variables, ajoute :
-   - `RESEND_API_KEY` : ta clé Resend
-   - `CONTACT_EMAIL` : `almudever.manon@gmail.com`
-   - `NEXT_PUBLIC_SITE_URL` : `https://makemyvisu.fr`
-5. Mets à jour le champ `from:` dans `src/app/api/contact/route.ts` une fois le domaine vérifié.
+Le bouton "Bilan offert" pointe vers un événement Calendly intégré en inline embed.
 
-> **Sans clé API** : le formulaire s'envoie quand même (sans erreur côté UX), mais le message
-> est juste loggé côté serveur. Pratique en dev.
+1. Crée un événement Calendly de 30 min nommé "Bilan stratégique offert".
+2. Récupère son URL (format `https://calendly.com/<utilisateur>/<event>`).
+3. Mets à jour la constante `CALENDLY_URL` dans `src/components/sections/ContactCTA.tsx`.
 
 ## Déploiement Vercel
 
 1. Push sur GitHub.
 2. Importe le repo dans [Vercel](https://vercel.com/new).
-3. Ajoute les variables d'environnement (voir ci-dessus).
+3. Ajoute la variable d'env `NEXT_PUBLIC_SITE_URL` = `https://makemyvisu.fr`.
 4. Déploie. Vercel détecte automatiquement Next.js 15.
 5. Connecte le domaine `makemyvisu.fr` dans Settings → Domains.
 

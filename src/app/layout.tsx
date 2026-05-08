@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Make my visu",
   },
   description:
-    "Créatrice de visuels marketing en PACA. Affiches événementielles, flyers, contenus Instagram pour restaurants, coachs et commerces. Devis gratuit.",
+    "Créatrice de visuels marketing en PACA. Affiches événementielles, flyers, contenus Instagram pour restaurants, coachs et commerces. Bilan stratégique offert.",
   keywords: [
     "graphiste freelance Vaucluse",
     "création visuels Instagram",

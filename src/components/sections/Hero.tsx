@@ -135,13 +135,13 @@ export function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <motion.div whileHover={{ rotateX: -8, rotateY: 6, z: 12 }} style={{ transformStyle: "preserve-3d" }}>
-            <Button as="link" href="#portfolio" variant="primary">
-              Voir le portfolio
+            <Button as="link" href="/contact" variant="primary">
+              Réserver mon bilan offert
             </Button>
           </motion.div>
           <motion.div whileHover={{ rotateX: -8, rotateY: -6, z: 12 }} style={{ transformStyle: "preserve-3d" }}>
-            <Button as="link" href="/contact" variant="secondary">
-              Demander un devis
+            <Button as="link" href="#portfolio" variant="secondary">
+              Voir le portfolio
             </Button>
           </motion.div>
         </motion.div>
