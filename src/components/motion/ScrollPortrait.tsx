@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import Image from "next/image";
 import { useRef, type ReactNode } from "react";
 
 type ScrollPortraitProps = {
@@ -34,7 +33,12 @@ export function ScrollPortrait({ src, alt, fallback, className }: ScrollPortrait
   const ringOpacity = useTransform(smooth, [0, 0.2, 0.8, 1], [0, 0.7, 0.7, 0]);
 
   return (
-    <div ref={ref} className={`relative ${className ?? ""}`}>
+    <div
+      ref={ref}
+      role="img"
+      aria-label={alt}
+      className={`relative ${className ?? ""}`}
+    >
       {fallback && (
         <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
           {fallback}
@@ -42,19 +46,16 @@ export function ScrollPortrait({ src, alt, fallback, className }: ScrollPortrait
       )}
 
       <motion.div
-        className="absolute inset-0 z-10"
-        style={{ y: imageY, scale: imageScale, rotate: tilt, filter }}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 45vw"
-          className="object-cover"
-          draggable={false}
-        />
-      </motion.div>
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-10 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${src})`,
+          y: imageY,
+          scale: imageScale,
+          rotate: tilt,
+          filter,
+        }}
+      />
 
       <motion.div
         aria-hidden="true"
