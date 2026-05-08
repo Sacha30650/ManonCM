@@ -18,6 +18,10 @@
   --animate-pulse-slow: pulseSlow 3s ease-in-out infinite;
   --animate-pulse-cta: pulseCta 2.4s ease-in-out infinite;
   --animate-fade-up: fadeUp 0.6s ease-out both;
+  --animate-float-3d: float3d 9s ease-in-out infinite;
+  --animate-spin-3d: spin3d 22s linear infinite;
+  --animate-orbit: orbit 18s linear infinite;
+  --animate-shimmer: shimmer 6s linear infinite;
 }
 
 @keyframes pulseSlow {
@@ -50,6 +54,49 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float3d {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translate3d(0, -14px, 30px) rotateX(6deg) rotateY(-8deg);
+  }
+  50% {
+    transform: translate3d(0, 6px, 0) rotateX(0deg) rotateY(8deg);
+  }
+  75% {
+    transform: translate3d(0, -10px, 20px) rotateX(-4deg) rotateY(4deg);
+  }
+}
+
+@keyframes spin3d {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(60px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(60px) rotate(-360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 
@@ -149,5 +196,42 @@
 
   .glow-accent {
     box-shadow: 0 0 0 1px rgba(255, 107, 157, 0.4), 0 8px 32px -8px rgba(255, 107, 157, 0.35);
+  }
+
+  .perspective-scene {
+    perspective: 1400px;
+    perspective-origin: 50% 30%;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      var(--color-text-primary) 0%,
+      var(--color-accent) 45%,
+      var(--color-accent-soft) 55%,
+      var(--color-text-primary) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+
+  .grid-3d {
+    background-image:
+      linear-gradient(rgba(255, 107, 157, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 107, 157, 0.08) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
   }
 }

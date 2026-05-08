@@ -13,7 +13,7 @@ export function Services() {
           description="Chaque livrable est pensé pour servir tes ventes, tes inscriptions ou ton remplissage. Pas juste pour faire joli."
         />
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="perspective-scene grid gap-6 md:grid-cols-3">
           {services.map((service, i) => (
             <FadeInWhenVisible key={service.id} delay={i * 0.08}>
               <ServiceCard service={service} />

@@ -25,7 +25,7 @@ export function PortfolioPreview() {
           </Link>
         </div>
 
-        <div className="grid auto-rows-[260px] grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
+        <div className="perspective-scene grid auto-rows-[260px] grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
           {featured.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}

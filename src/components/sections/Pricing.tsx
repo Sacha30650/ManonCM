@@ -14,7 +14,7 @@ export function Pricing() {
           description="Choisis un pack ou compose à la carte. Toujours un devis clair en amont, jamais de surprise."
         />
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="perspective-scene grid gap-6 md:grid-cols-3">
           {packs.map((p, i) => (
             <FadeInWhenVisible key={p.id} delay={i * 0.08}>
               <PricingCard pack={p} />

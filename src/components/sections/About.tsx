@@ -1,11 +1,13 @@
 import { FadeInWhenVisible } from "@/components/motion/FadeInWhenVisible";
+import { Tilt3D } from "@/components/motion/Tilt3D";
 import { Sparkle } from "@/components/ui/Sparkle";
 
 export function About() {
   return (
-    <section id="a-propos" className="section-padding relative overflow-hidden">
+    <section id="a-propos" className="section-padding perspective-scene relative overflow-hidden">
       <div className="container-page grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-center">
         <FadeInWhenVisible className="relative">
+          <Tilt3D className="block" intensity={14} scale={1.02}>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border bg-surface">
             <div
               className="absolute inset-0"
@@ -28,6 +30,7 @@ export function About() {
             />
             <Sparkle size={32} className="absolute bottom-8 left-8 text-accent" delay={1} />
           </div>
+          </Tilt3D>
         </FadeInWhenVisible>
 
         <div className="flex flex-col gap-8">
