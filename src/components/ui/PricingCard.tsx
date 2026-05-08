@@ -1,71 +1,77 @@
 "use client";
 
-import { Tilt3D } from "@/components/motion/Tilt3D";
+import { motion } from "framer-motion";
+
 import { Button } from "@/components/ui/Button";
 import type { Pack } from "@/data/pricing";
 
-export function PricingCard({ pack }: { pack: Pack }) {
+type PricingCardProps = {
+  pack: Pack;
+  index: number;
+};
+
+export function PricingCard({ pack, index }: PricingCardProps) {
   return (
-    <Tilt3D className="h-full" intensity={pack.highlight ? 12 : 9} scale={1.03}>
-      <article
-        className={`relative flex h-full flex-col gap-6 overflow-hidden rounded-3xl border p-8 transition-colors duration-300 ${
-          pack.highlight
-            ? "border-accent bg-surface-elevated shadow-[0_30px_80px_-30px_rgba(255,107,157,0.55)]"
-            : "border-border bg-surface hover:border-accent/60 hover:bg-surface-elevated"
-        }`}
-        style={{ transformStyle: "preserve-3d" }}
-      >
+    <motion.article
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className={`relative flex h-full flex-col gap-8 overflow-hidden rounded-sm border p-8 transition-colors duration-300 md:p-10 ${
+        pack.highlight
+          ? "border-accent/70 bg-surface-elevated"
+          : "border-border bg-surface hover:border-accent/40 hover:bg-surface-elevated"
+      }`}
+    >
+      {pack.highlight && (
         <div
           aria-hidden="true"
-          className={`pointer-events-none absolute -left-20 -bottom-24 h-52 w-52 rounded-full blur-3xl ${
-            pack.highlight ? "bg-accent/20" : "bg-accent/10"
-          }`}
-          style={{ transform: "translateZ(20px)" }}
+          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-accent/8 via-transparent to-transparent"
         />
+      )}
 
+      <header className="relative flex items-start justify-between">
+        <span className="editorial-num text-text-muted">
+          {String(index + 1).padStart(2, "0")} / {String(3).padStart(2, "0")}
+        </span>
         {pack.badge && (
-          <span
-            className="absolute -top-3 left-8 rounded-full bg-accent px-4 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-background"
-            style={{ transform: "translateZ(80px)" }}
-          >
+          <span className="rounded-full border border-accent/50 bg-accent/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-accent">
             {pack.badge}
           </span>
         )}
+      </header>
 
-        <div className="flex flex-col gap-2" style={{ transform: "translateZ(50px)" }}>
-          <h3 className="text-display text-2xl text-text-primary md:text-3xl">{pack.name}</h3>
-          <p className="text-display text-4xl text-accent md:text-5xl">{pack.price}</p>
-        </div>
+      <div className="relative flex flex-col gap-4">
+        <h3 className="text-display text-3xl text-text-primary md:text-4xl">{pack.name}</h3>
+        <div className="h-px w-12 bg-accent" aria-hidden="true" />
+        <p className="font-display text-5xl text-accent md:text-6xl" style={{ fontFamily: "var(--font-display)" }}>
+          {pack.price}
+        </p>
+      </div>
 
-        <ul
-          className="flex flex-1 flex-col gap-3 text-sm text-text-secondary"
-          style={{ transform: "translateZ(25px)" }}
-        >
-          {pack.features.map((f) => (
-            <li key={f} className="flex items-start gap-3">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="mt-0.5 shrink-0 text-accent"
-                aria-hidden="true"
-              >
-                <path d="M5 12l4 4 10-10" />
-              </svg>
-              {f}
-            </li>
-          ))}
-        </ul>
+      <ul className="relative flex flex-1 flex-col gap-3 text-[15px] leading-relaxed text-text-secondary">
+        {pack.features.map((f) => (
+          <li key={f} className="flex items-start gap-3">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="mt-1 shrink-0 text-accent"
+              aria-hidden="true"
+            >
+              <path d="M5 12l4 4 10-10" />
+            </svg>
+            {f}
+          </li>
+        ))}
+      </ul>
 
-        <div style={{ transform: "translateZ(40px)" }}>
-          <Button as="link" href="/contact" variant={pack.highlight ? "primary" : "secondary"}>
-            Choisir ce pack
-          </Button>
-        </div>
-      </article>
-    </Tilt3D>
+      <div className="relative">
+        <Button as="link" href="/contact" variant={pack.highlight ? "primary" : "secondary"}>
+          Choisir ce pack
+        </Button>
+      </div>
+    </motion.article>
   );
 }

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Inter } from "next/font/google";
+import { Anton, Cormorant_Garamond, Inter } from "next/font/google";
 import Script from "next/script";
 
 import { Footer } from "@/components/layout/Footer";
@@ -18,6 +18,14 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-cormorant",
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://makemyvisu.fr";
@@ -92,7 +100,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="fr" className={`${anton.variable} ${inter.variable}`}>
+    <html lang="fr" className={`${anton.variable} ${inter.variable} ${cormorant.variable}`}>
       <body className="min-h-screen bg-background text-text-primary antialiased">
         <Nav />
         <main>{children}</main>

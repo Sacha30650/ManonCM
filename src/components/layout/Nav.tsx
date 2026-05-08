@@ -48,23 +48,32 @@ export function Nav() {
       <div className="container-page flex h-20 items-center justify-between">
         <Link
           href="/"
-          className="text-display text-2xl tracking-[0.06em] text-text-primary transition-colors hover:text-accent"
+          className="group flex items-center gap-3 transition-colors"
         >
-          MAKE MY VISU
+          <span className="h-1.5 w-1.5 rounded-full bg-accent transition-transform group-hover:scale-150" aria-hidden="true" />
+          <span className="text-display text-xl tracking-[0.04em] text-text-primary transition-colors group-hover:text-accent md:text-2xl">
+            Make my visu
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
-          {links.map((link) => {
+        <nav className="hidden items-center gap-10 md:flex" aria-label="Navigation principale">
+          {links.map((link, i) => {
             const active = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium uppercase tracking-[0.18em] transition-colors ${
+                className={`group relative flex items-center gap-2 text-[12px] font-medium uppercase tracking-[0.22em] transition-colors ${
                   active ? "text-accent" : "text-text-secondary hover:text-text-primary"
                 }`}
               >
+                <span className="text-text-muted/70" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 {link.label}
+                {active && (
+                  <span className="absolute -bottom-1.5 left-0 right-0 h-px bg-accent" aria-hidden="true" />
+                )}
               </Link>
             );
           })}

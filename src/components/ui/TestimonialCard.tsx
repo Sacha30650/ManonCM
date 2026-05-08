@@ -1,29 +1,45 @@
 import type { Testimonial } from "@/data/testimonials";
 
-export function TestimonialCard({ t }: { t: Testimonial }) {
+type TestimonialCardProps = {
+  t: Testimonial;
+  index: number;
+};
+
+export function TestimonialCard({ t, index }: TestimonialCardProps) {
   return (
-    <article className="flex h-full flex-col gap-6 rounded-3xl border border-border bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:bg-surface-elevated">
-      <svg
-        width="32"
-        height="32"
-        viewBox="0 0 24 24"
-        fill="none"
-        className="text-accent"
-        aria-hidden="true"
-      >
-        <path
-          d="M7 10c0-2.2 1.8-4 4-4V3C6.6 3 3 6.6 3 11v8h8v-8H7v-1Zm10 0c0-2.2 1.8-4 4-4V3c-4.4 0-8 3.6-8 8v8h8v-8h-4v-1Z"
-          fill="currentColor"
-          opacity="0.85"
-        />
-      </svg>
+    <article className="group flex h-full flex-col justify-between gap-8 rounded-sm border border-border bg-surface p-8 transition-colors duration-300 hover:border-accent/40 hover:bg-surface-elevated md:p-10">
+      <div className="flex flex-col gap-6">
+        <span className="editorial-num text-text-muted transition-colors group-hover:text-accent-soft">
+          {String(index + 1).padStart(2, "0")}
+        </span>
 
-      <p className="flex-1 text-base text-text-primary md:text-lg">{t.quote}</p>
-
-      <div className="border-t border-border pt-4">
-        <p className="text-sm font-semibold text-text-primary">{t.name}</p>
-        <p className="text-xs uppercase tracking-[0.24em] text-text-muted">{t.role}</p>
+        <blockquote
+          className="font-serif text-xl italic leading-snug text-text-primary md:text-2xl"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
+          <span className="text-accent" aria-hidden="true">
+            “
+          </span>
+          {t.quote}
+          <span className="text-accent" aria-hidden="true">
+            ”
+          </span>
+        </blockquote>
       </div>
+
+      <footer className="flex items-center gap-4 border-t border-border pt-6">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-eyebrow text-accent-soft">
+          {t.name
+            .split(" ")
+            .map((n) => n[0])
+            .slice(0, 2)
+            .join("")}
+        </div>
+        <div className="flex flex-col">
+          <span className="text-sm font-semibold text-text-primary">{t.name}</span>
+          <span className="text-eyebrow text-text-muted">{t.role}</span>
+        </div>
+      </footer>
     </article>
   );
 }
