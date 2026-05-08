@@ -19,8 +19,8 @@ export function About() {
             />
             <div className="grain-overlay" aria-hidden="true" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-display text-[clamp(4rem,14vw,9rem)] leading-none text-accent/90">
-                MA
+              <span className="text-display text-[clamp(3rem,11vw,7rem)] leading-none text-accent/90">
+                MMV
               </span>
             </div>
             <Sparkle

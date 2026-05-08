@@ -1,9 +1,9 @@
-# Manon Almu — Portfolio
+# Make my visu — Portfolio
 
-Site portfolio professionnel de **Manon Almu**, créatrice de visuels marketing et contenus
-Instagram. Construit avec Next.js 15, TypeScript, Tailwind CSS v4 et Framer Motion.
+Site portfolio professionnel de **Make my visu** (Manon Almu), créatrice de visuels marketing
+et contenus Instagram. Construit avec Next.js 15, TypeScript, Tailwind CSS v4 et Framer Motion.
 
-→ Production : [manon-almu.fr](https://manon-almu.fr)
+→ Production : [makemyvisu.fr](https://makemyvisu.fr)
 
 ---
 
@@ -106,12 +106,12 @@ Les 6 premiers projets de la liste apparaissent sur la homepage, tous sur `/port
 ## Configurer Resend (formulaire de contact)
 
 1. Crée un compte sur [resend.com](https://resend.com) (gratuit jusqu'à 3000 emails/mois).
-2. Ajoute le domaine `manon-almu.fr` dans Resend et configure les enregistrements DNS.
+2. Ajoute le domaine `makemyvisu.fr` dans Resend et configure les enregistrements DNS.
 3. Récupère ta clé API (`re_xxx…`).
 4. Dans Vercel → Settings → Environment Variables, ajoute :
    - `RESEND_API_KEY` : ta clé Resend
    - `CONTACT_EMAIL` : `almudever.manon@gmail.com`
-   - `NEXT_PUBLIC_SITE_URL` : `https://manon-almu.fr`
+   - `NEXT_PUBLIC_SITE_URL` : `https://makemyvisu.fr`
 5. Mets à jour le champ `from:` dans `src/app/api/contact/route.ts` une fois le domaine vérifié.
 
 > **Sans clé API** : le formulaire s'envoie quand même (sans erreur côté UX), mais le message
@@ -123,7 +123,7 @@ Les 6 premiers projets de la liste apparaissent sur la homepage, tous sur `/port
 2. Importe le repo dans [Vercel](https://vercel.com/new).
 3. Ajoute les variables d'environnement (voir ci-dessus).
 4. Déploie. Vercel détecte automatiquement Next.js 15.
-5. Connecte le domaine `manon-almu.fr` dans Settings → Domains.
+5. Connecte le domaine `makemyvisu.fr` dans Settings → Domains.
 
 ## Design system
 
@@ -153,4 +153,4 @@ Pour modifier, édite directement les variables dans `globals.css`.
 
 ## Licence
 
-© Manon Almu — Tous droits réservés.
+© Make my visu — Tous droits réservés.

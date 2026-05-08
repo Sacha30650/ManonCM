@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Sélection de projets de Manon Almu : affiches événementielles, flyers, contenus Instagram pour clubs, coachs sportifs, restaurants et commerces.",
+    "Sélection de projets Make my visu : affiches événementielles, flyers, contenus Instagram pour clubs, coachs sportifs, restaurants et commerces.",
   alternates: { canonical: "/portfolio" },
 };
 

@@ -14,7 +14,7 @@ export function Footer() {
       <div className="container-page grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:gap-8">
         <div className="flex flex-col gap-4">
           <Link href="/" className="text-display text-3xl tracking-[0.06em] text-text-primary">
-            MANON ALMU
+            MAKE MY VISU
           </Link>
           <p className="max-w-sm text-sm text-text-secondary">
             Créatrice de visuels marketing et contenus Instagram. Des supports pensés business,
@@ -52,7 +52,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-fit items-center gap-2 text-sm text-text-secondary transition-colors hover:text-accent"
-            aria-label="Instagram de Manon Almu"
+            aria-label="Instagram de Make my visu"
           >
             <svg
               width="18"
@@ -73,7 +73,7 @@ export function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="container-page flex flex-col items-start justify-between gap-2 py-6 text-xs text-text-muted md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Manon Almu — Tous droits réservés.</p>
+          <p>© {new Date().getFullYear()} Make my visu — Tous droits réservés.</p>
           <p>Site conçu en PACA · Made with care.</p>
         </div>
       </div>
