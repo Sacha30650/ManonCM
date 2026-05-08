@@ -88,7 +88,7 @@ export default function RootLayout({
       "Créatrice de visuels marketing : affiches, flyers, contenus Instagram pour restaurants, coachs et commerces.",
     areaServed: { "@type": "AdministrativeArea", name: "PACA, France" },
     priceRange: "€€",
-    sameAs: ["https://www.instagram.com/"],
+    sameAs: ["https://www.instagram.com/makemyvisu"],
   };
 
   return (
