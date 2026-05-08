@@ -47,19 +47,17 @@ npm run dev
 
 ```
 src/
-├── app/                    # App Router (pages, API, sitemap, robots, OG)
-│   ├── api/contact/        # POST /api/contact (Resend)
+├── app/                    # App Router (pages, sitemap, robots, OG)
 │   ├── portfolio/
 │   ├── tarifs/
-│   ├── contact/
+│   ├── contact/            # Embed Calendly + bilan offert
 │   └── mentions-legales/
 ├── components/
 │   ├── layout/             # Nav, Footer
-│   ├── motion/             # FadeInWhenVisible
+│   ├── motion/             # FadeInWhenVisible, Tilt3D, Hero3DScene
 │   ├── sections/           # Hero, About, Services, Pricing…
-│   └── ui/                 # Button, ServiceCard, FAQItem…
-├── data/                   # Contenu éditorial (projets, services, tarifs…)
-└── lib/                    # validations Zod, client Resend
+│   └── ui/                 # Button, ServiceCard, CalendlyEmbed…
+└── data/                   # Contenu éditorial (projets, services, tarifs…)
 ```
 
 ## Mettre à jour le contenu
