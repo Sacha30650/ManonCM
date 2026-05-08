@@ -1,35 +1,64 @@
+"use client";
+
+import dynamic from "next/dynamic";
+import { useRef } from "react";
+
 import { FadeInWhenVisible } from "@/components/motion/FadeInWhenVisible";
 import { Tilt3D } from "@/components/motion/Tilt3D";
 import { Sparkle } from "@/components/ui/Sparkle";
 
+const Model3DViewer = dynamic(
+  () => import("@/components/motion/Model3DViewer").then((m) => m.Model3DViewer),
+  { ssr: false, loading: () => null },
+);
+
+const MODEL_URL = "/manon-3d.glb";
+
 export function About() {
+  const portraitRef = useRef<HTMLDivElement>(null);
+
   return (
     <section id="a-propos" className="section-padding perspective-scene relative overflow-hidden">
       <div className="container-page grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-center">
         <FadeInWhenVisible className="relative">
           <Tilt3D className="block" intensity={14} scale={1.02}>
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border bg-surface">
             <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 30% 20%, rgba(255,107,157,0.35), transparent 60%), radial-gradient(circle at 80% 80%, rgba(245,184,200,0.25), transparent 55%), linear-gradient(180deg, #1c1c1c, #0a0a0a)",
-              }}
-              aria-hidden="true"
-            />
-            <div className="grain-overlay" aria-hidden="true" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-display text-[clamp(3rem,11vw,7rem)] leading-none text-accent/90">
-                MMV
-              </span>
+              ref={portraitRef}
+              className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border bg-surface"
+            >
+              <div
+                className="absolute inset-0"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 30% 20%, rgba(255,107,157,0.35), transparent 60%), radial-gradient(circle at 80% 80%, rgba(245,184,200,0.25), transparent 55%), linear-gradient(180deg, #1c1c1c, #0a0a0a)",
+                }}
+                aria-hidden="true"
+              />
+              <div className="grain-overlay" aria-hidden="true" />
+
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-display text-[clamp(3rem,11vw,7rem)] leading-none text-accent/90">
+                  MMV
+                </span>
+              </div>
+
+              <Model3DViewer
+                url={MODEL_URL}
+                containerRef={portraitRef}
+                className="absolute inset-0"
+              />
+
+              <Sparkle
+                size={24}
+                className="pointer-events-none absolute right-6 top-6 text-accent-soft"
+                delay={0.4}
+              />
+              <Sparkle
+                size={32}
+                className="pointer-events-none absolute bottom-8 left-8 text-accent"
+                delay={1}
+              />
             </div>
-            <Sparkle
-              size={24}
-              className="absolute right-6 top-6 text-accent-soft"
-              delay={0.4}
-            />
-            <Sparkle size={32} className="absolute bottom-8 left-8 text-accent" delay={1} />
-          </div>
           </Tilt3D>
         </FadeInWhenVisible>
 
