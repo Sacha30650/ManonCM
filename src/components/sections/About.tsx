@@ -1,31 +1,15 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import { useRef } from "react";
-
 import { FadeInWhenVisible } from "@/components/motion/FadeInWhenVisible";
+import { ScrollPortrait } from "@/components/motion/ScrollPortrait";
 import { Tilt3D } from "@/components/motion/Tilt3D";
 import { Sparkle } from "@/components/ui/Sparkle";
 
-const Model3DViewer = dynamic(
-  () => import("@/components/motion/Model3DViewer").then((m) => m.Model3DViewer),
-  { ssr: false, loading: () => null },
-);
-
-const MODEL_URL = "/manon-3d.glb";
-
 export function About() {
-  const portraitRef = useRef<HTMLDivElement>(null);
-
   return (
     <section id="a-propos" className="section-padding perspective-scene relative overflow-hidden">
       <div className="container-page grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-center">
         <FadeInWhenVisible className="relative">
           <Tilt3D className="block" intensity={14} scale={1.02}>
-            <div
-              ref={portraitRef}
-              className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border bg-surface"
-            >
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border bg-surface">
               <div
                 className="absolute inset-0"
                 style={{
@@ -36,16 +20,15 @@ export function About() {
               />
               <div className="grain-overlay" aria-hidden="true" />
 
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-display text-[clamp(3rem,11vw,7rem)] leading-none text-accent/90">
-                  MMV
-                </span>
-              </div>
-
-              <Model3DViewer
-                url={MODEL_URL}
-                containerRef={portraitRef}
+              <ScrollPortrait
+                src="/manon-portrait.jpg"
+                alt="Manon Almu, créatrice de visuels Make my visu"
                 className="absolute inset-0"
+                fallback={
+                  <span className="text-display text-[clamp(3rem,11vw,7rem)] leading-none text-accent/90">
+                    MMV
+                  </span>
+                }
               />
 
               <Sparkle
