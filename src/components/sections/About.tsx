@@ -2,65 +2,82 @@ import { FadeInWhenVisible } from "@/components/motion/FadeInWhenVisible";
 
 export function About() {
   return (
-    <section id="a-propos" className="section-padding relative overflow-hidden">
-      <div className="container-page grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:items-center">
-        <FadeInWhenVisible className="relative">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border bg-surface">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/manon-portrait.jpg"
-              alt="Manon Almu, créatrice de visuels Make my visu"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
+    <section id="a-propos" className="section-padding-lg relative overflow-hidden">
+      <div className="container-page">
+        <FadeInWhenVisible className="mb-12 flex items-center gap-4">
+          <span className="accent-rule" aria-hidden="true" />
+          <span className="text-eyebrow text-text-muted">01 — À propos</span>
         </FadeInWhenVisible>
 
-        <div className="flex flex-col gap-8">
-          <FadeInWhenVisible>
-            <span className="text-xs font-semibold uppercase tracking-[0.32em] text-accent-soft">
-              À propos
-            </span>
-            <h2 className="text-display text-section mt-4 text-text-primary">
-              Des visuels pensés <span className="text-accent">business</span>, pas déco.
-            </h2>
-          </FadeInWhenVisible>
-
-          <FadeInWhenVisible delay={0.1}>
-            <p className="text-base text-text-secondary md:text-lg">
-              Je suis créatrice de visuels marketing spécialisée dans la création d&apos;affiches,
-              flyers et contenus Instagram. J&apos;accompagne les entreprises (restaurants,
-              coachs, commerces, événements) à développer leur visibilité et attirer plus de
-              clients grâce à des visuels professionnels et impactants.
-            </p>
-          </FadeInWhenVisible>
-
-          <FadeInWhenVisible delay={0.15}>
-            <div className="flex items-start gap-5 rounded-2xl border border-accent/30 bg-accent/5 p-6">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.6"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <circle cx="12" cy="12" r="5" />
-                  <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent-soft">
-                  Mon objectif
-                </p>
-                <p className="mt-1 text-base text-text-primary md:text-lg">
-                  Transformer ta communication en outil pour générer des clients.
-                </p>
-              </div>
+        <div className="grid gap-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20 lg:items-start">
+          <FadeInWhenVisible className="relative">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm border border-border bg-surface">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/manon-portrait.jpg"
+                alt="Manon Almu, créatrice de visuels Make my visu"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent"
+              />
+            </div>
+            <div className="mt-5 flex items-center justify-between text-eyebrow text-text-muted">
+              <span>Manon Almudever</span>
+              <span>PACA, France</span>
             </div>
           </FadeInWhenVisible>
+
+          <div className="flex flex-col gap-10">
+            <FadeInWhenVisible>
+              <h2 className="text-display text-section text-text-primary">
+                Des visuels pensés <span className="font-serif italic text-accent" style={{ fontFamily: "var(--font-serif)" }}>business</span>, pas déco.
+              </h2>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible delay={0.1}>
+              <blockquote className="pull-quote font-serif text-pull text-text-primary" style={{ fontFamily: "var(--font-serif)" }}>
+                Un beau visuel qui ne convertit pas, c&apos;est une dépense. Mon métier
+                c&apos;est d&apos;en faire un investissement qui te ramène des clients.
+              </blockquote>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible delay={0.18}>
+              <div className="grid gap-8 md:grid-cols-2 md:gap-10">
+                <p className="text-base leading-relaxed text-text-secondary md:text-[17px]">
+                  Je suis créatrice de visuels marketing spécialisée dans la création
+                  d&apos;affiches, flyers et contenus Instagram. J&apos;accompagne les
+                  entreprises locales — restaurants, coachs, commerces, événements — à
+                  développer leur visibilité.
+                </p>
+                <p className="text-base leading-relaxed text-text-secondary md:text-[17px]">
+                  Chaque livrable est conçu autour d&apos;un seul axe : ce que tu vends,
+                  et à qui. Pas de visuels jolis pour faire joli. Des supports qui
+                  servent ton chiffre d&apos;affaires.
+                </p>
+              </div>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible delay={0.25}>
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border pt-8 text-sm">
+                <div className="flex flex-col gap-1">
+                  <span className="text-eyebrow text-text-muted">Basée à</span>
+                  <span className="text-text-primary">Vaucluse · PACA</span>
+                </div>
+                <div className="hidden h-8 w-px bg-border md:block" aria-hidden="true" />
+                <div className="flex flex-col gap-1">
+                  <span className="text-eyebrow text-text-muted">Disponible</span>
+                  <span className="text-text-primary">Mai 2026 — 2 places</span>
+                </div>
+                <div className="hidden h-8 w-px bg-border md:block" aria-hidden="true" />
+                <div className="flex flex-col gap-1">
+                  <span className="text-eyebrow text-text-muted">Format</span>
+                  <span className="text-text-primary">Visio + sur place PACA</span>
+                </div>
+              </div>
+            </FadeInWhenVisible>
+          </div>
         </div>
       </div>
     </section>
