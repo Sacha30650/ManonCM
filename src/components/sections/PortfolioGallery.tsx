@@ -49,7 +49,7 @@ export function PortfolioGallery() {
 
       <motion.div
         layout
-        className="mt-12 grid auto-rows-[260px] grid-cols-1 gap-4 md:grid-cols-3 md:gap-6"
+        className="perspective-scene mt-12 grid auto-rows-[260px] grid-cols-1 gap-4 md:grid-cols-3 md:gap-6"
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((project) => (

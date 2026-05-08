@@ -1,3 +1,6 @@
+"use client";
+
+import { Tilt3D } from "@/components/motion/Tilt3D";
 import type { Service } from "@/data/services";
 
 const icons: Record<Service["icon"], React.ReactNode> = {
@@ -29,25 +32,50 @@ const icons: Record<Service["icon"], React.ReactNode> = {
 
 export function ServiceCard({ service }: { service: Service }) {
   return (
-    <article className="group relative flex h-full flex-col gap-6 rounded-3xl border border-border bg-surface p-8 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-surface-elevated hover:shadow-[0_24px_60px_-24px_rgba(255,107,157,0.45)]">
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-background/60 text-accent transition-colors group-hover:border-accent">
-        <div className="h-7 w-7">{icons[service.icon]}</div>
-      </div>
+    <Tilt3D className="h-full" intensity={10} scale={1.03}>
+      <article
+        className="group relative flex h-full flex-col gap-6 overflow-hidden rounded-3xl border border-border bg-surface p-8 transition-colors duration-300 hover:border-accent hover:bg-surface-elevated hover:shadow-[0_24px_60px_-24px_rgba(255,107,157,0.45)]"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-accent/15 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style={{ transform: "translateZ(40px)" }}
+        />
 
-      <h3 className="text-display text-3xl text-text-primary">{service.title}</h3>
+        <div
+          className="flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-background/60 text-accent transition-colors group-hover:border-accent"
+          style={{ transform: "translateZ(60px)" }}
+        >
+          <div className="h-7 w-7">{icons[service.icon]}</div>
+        </div>
 
-      <ul className="flex flex-col gap-2.5 text-sm text-text-secondary">
-        {service.items.map((item) => (
-          <li key={item} className="flex items-start gap-3">
-            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-            {item}
-          </li>
-        ))}
-      </ul>
+        <h3
+          className="text-display text-3xl text-text-primary"
+          style={{ transform: "translateZ(40px)" }}
+        >
+          {service.title}
+        </h3>
 
-      <div className="mt-auto flex items-center gap-2 pt-4 text-xs font-semibold uppercase tracking-[0.24em] text-accent-soft">
-        <span>{service.price}</span>
-      </div>
-    </article>
+        <ul
+          className="flex flex-col gap-2.5 text-sm text-text-secondary"
+          style={{ transform: "translateZ(20px)" }}
+        >
+          {service.items.map((item) => (
+            <li key={item} className="flex items-start gap-3">
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <div
+          className="mt-auto flex items-center gap-2 pt-4 text-xs font-semibold uppercase tracking-[0.24em] text-accent-soft"
+          style={{ transform: "translateZ(30px)" }}
+        >
+          <span>{service.price}</span>
+        </div>
+      </article>
+    </Tilt3D>
   );
 }
