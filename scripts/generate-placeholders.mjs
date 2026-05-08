@@ -58,7 +58,7 @@ for (const p of projects) {
   <text text-anchor="middle" fill="#fafafa" font-family="Anton, Bebas Neue, sans-serif" font-size="120" letter-spacing="-2" font-weight="700">
     ${tspans}
   </text>
-  <text x="600" y="820" text-anchor="middle" fill="${p.colors[1]}" font-family="Inter, sans-serif" font-size="20" letter-spacing="6">MANON ALMU · DESIGN</text>
+  <text x="600" y="820" text-anchor="middle" fill="${p.colors[1]}" font-family="Inter, sans-serif" font-size="20" letter-spacing="6">MAKE MY VISU · DESIGN</text>
 </svg>`;
   writeFileSync(resolve(outDir, `${p.file}.svg`), svg, "utf8");
   console.log("✓", p.file);
@@ -80,7 +80,7 @@ const ogSvg = `<?xml version="1.0" encoding="UTF-8"?>
   <rect width="1200" height="630" fill="url(#bg)"/>
   <rect width="1200" height="630" fill="url(#glow)"/>
   <text x="80" y="180" fill="#F5B8C8" font-family="Inter, sans-serif" font-size="22" letter-spacing="8" font-weight="600">CRÉATRICE DE VISUELS &amp; CONTENUS INSTAGRAM</text>
-  <text x="80" y="310" fill="#fafafa" font-family="Anton, Bebas Neue, sans-serif" font-size="120" font-weight="700" letter-spacing="-2">MANON ALMU</text>
+  <text x="80" y="310" fill="#fafafa" font-family="Anton, Bebas Neue, sans-serif" font-size="120" font-weight="700" letter-spacing="-2">MAKE MY VISU</text>
   <text x="80" y="400" fill="#FF6B9D" font-family="Anton, Bebas Neue, sans-serif" font-size="64" font-weight="700">DES VISUELS QUI CONVERTISSENT.</text>
   <text x="80" y="540" fill="#a0a0a0" font-family="Inter, sans-serif" font-size="22">Affiches · Flyers · Instagram — Pour restaurants, coachs &amp; commerces</text>
 </svg>`;

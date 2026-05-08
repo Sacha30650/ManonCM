@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  description: "Mentions légales du site manon-almu.fr.",
+  description: "Mentions légales du site makemyvisu.fr.",
   alternates: { canonical: "/mentions-legales" },
   robots: { index: false, follow: true },
 };
@@ -22,8 +22,8 @@ export default function MentionsLegalesPage() {
           <section className="flex flex-col gap-2">
             <h2 className="text-display text-2xl text-text-primary">Éditeur du site</h2>
             <p>
-              Le site <strong className="text-text-primary">manon-almu.fr</strong> est édité par
-              Manon Almu, micro-entrepreneuse en région PACA (France).
+              Le site <strong className="text-text-primary">makemyvisu.fr</strong> (Make my visu)
+              est édité par Manon Almu, micro-entrepreneuse en région PACA (France).
             </p>
             <p>Email : almudever.manon@gmail.com</p>
           </section>

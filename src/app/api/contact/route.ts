@@ -40,7 +40,7 @@ ${data.message}`;
 
   const html = `
     <div style="font-family: Inter, Arial, sans-serif; max-width: 560px; margin: 0 auto; color: #0a0a0a;">
-      <h2 style="font-size: 20px; margin: 0 0 16px;">Nouveau message via manon-almu.fr</h2>
+      <h2 style="font-size: 20px; margin: 0 0 16px;">Nouveau message via makemyvisu.fr</h2>
       <p style="margin: 0 0 8px;"><strong>Nom :</strong> ${escapeHtml(data.name)}</p>
       <p style="margin: 0 0 8px;"><strong>Email :</strong> ${escapeHtml(data.email)}</p>
       <p style="margin: 0 0 8px;"><strong>Type de projet :</strong> ${escapeHtml(data.projectType)}</p>
@@ -60,7 +60,7 @@ ${data.message}`;
 
   try {
     const { error } = await resend.emails.send({
-      from: "Manon Almu <contact@manon-almu.fr>",
+      from: "Make my visu <contact@makemyvisu.fr>",
       to: [CONTACT_EMAIL],
       replyTo: data.email,
       subject,

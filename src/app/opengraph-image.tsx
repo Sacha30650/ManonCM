@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Manon Almu — Créatrice de visuels & contenus Instagram";
+export const alt = "Make my visu — Créatrice de visuels & contenus Instagram";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -42,7 +42,7 @@ export default async function OpengraphImage() {
             lineHeight: 1,
           }}
         >
-          MANON ALMU
+          MAKE MY VISU
         </div>
         <div
           style={{

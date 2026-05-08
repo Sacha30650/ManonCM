@@ -6,7 +6,7 @@ import { Pricing } from "@/components/sections/Pricing";
 export const metadata: Metadata = {
   title: "Tarifs",
   description:
-    "Tarifs des packs et créations à l'unité de Manon Almu. Affiches, flyers, posts et carrousels Instagram, packs complets pour TPE, coachs et restaurants.",
+    "Tarifs des packs et créations à l'unité Make my visu. Affiches, flyers, posts et carrousels Instagram, packs complets pour TPE, coachs et restaurants.",
   alternates: { canonical: "/tarifs" },
 };
 

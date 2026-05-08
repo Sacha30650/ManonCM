@@ -20,14 +20,14 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://manon-almu.fr";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://makemyvisu.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Manon Almu — Créatrice de visuels & contenus Instagram | Affiches, flyers, posts pro",
-    template: "%s | Manon Almu",
+      "Make my visu — Créatrice de visuels & contenus Instagram | Affiches, flyers, posts pro",
+    template: "%s | Make my visu",
   },
   description:
     "Créatrice de visuels marketing en PACA. Affiches événementielles, flyers, contenus Instagram pour restaurants, coachs et commerces. Devis gratuit.",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
     "affiche soirée club",
     "visuels marketing PACA",
   ],
-  authors: [{ name: "Manon Almu" }],
-  creator: "Manon Almu",
+  authors: [{ name: "Make my visu" }],
+  creator: "Make my visu",
   alternates: {
     canonical: "/",
   },
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: siteUrl,
-    siteName: "Manon Almu",
-    title: "Manon Almu — Créatrice de visuels & contenus Instagram",
+    siteName: "Make my visu",
+    title: "Make my visu — Créatrice de visuels & contenus Instagram",
     description:
       "Affiches, flyers et contenus Instagram pour transformer ta communication en machine à attirer des clients.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manon Almu — Créatrice de visuels & contenus Instagram",
+    title: "Make my visu — Créatrice de visuels & contenus Instagram",
     description:
       "Affiches, flyers et contenus Instagram pour transformer ta communication en machine à attirer des clients.",
   },
@@ -79,7 +79,7 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "Manon Almu",
+    name: "Make my visu",
     image: `${siteUrl}/og-image.png`,
     "@id": siteUrl,
     url: siteUrl,

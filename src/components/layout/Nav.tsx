@@ -50,7 +50,7 @@ export function Nav() {
           href="/"
           className="text-display text-2xl tracking-[0.06em] text-text-primary transition-colors hover:text-accent"
         >
-          MANON ALMU
+          MAKE MY VISU
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
