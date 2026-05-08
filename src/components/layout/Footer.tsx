@@ -48,7 +48,7 @@ export function Footer() {
             almudever.manon@gmail.com
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/makemyvisu"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-fit items-center gap-2 text-sm text-text-secondary transition-colors hover:text-accent"

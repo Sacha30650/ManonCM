@@ -126,7 +126,7 @@ export function ContactCTA() {
                 </svg>
               </span>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/makemyvisu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-text-primary transition-colors hover:text-accent"
