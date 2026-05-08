@@ -50,7 +50,7 @@ export function Pricing() {
 
           <div className="mt-6">
             <Button as="link" href="/contact">
-              Demander un devis
+              Réserver mon bilan offert
             </Button>
           </div>
         </FadeInWhenVisible>

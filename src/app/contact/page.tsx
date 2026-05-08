@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Contact — Demander un devis",
+  title: "Contact — Réserver un bilan stratégique offert",
   description:
-    "Décris ton projet en quelques lignes. Manon revient vers toi sous 24h avec un devis personnalisé.",
+    "Réserve ton bilan stratégique offert avec Make my visu : 30 min en visio pour faire le point sur ta com et repartir avec un plan d'action.",
   alternates: { canonical: "/contact" },
 };
 

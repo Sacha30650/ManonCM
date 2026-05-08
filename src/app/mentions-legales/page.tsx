@@ -45,10 +45,10 @@ export default function MentionsLegalesPage() {
           <section className="flex flex-col gap-2">
             <h2 className="text-display text-2xl text-text-primary">Données personnelles</h2>
             <p>
-              Les informations transmises via le formulaire de contact sont utilisées
-              exclusivement pour répondre à votre demande. Aucune donnée n&apos;est cédée à des
-              tiers. Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, de
-              rectification et de suppression de vos données.
+              Les informations transmises lors de la prise de rendez-vous via Calendly et par
+              email sont utilisées exclusivement pour répondre à votre demande. Aucune donnée
+              n&apos;est cédée à des tiers. Conformément au RGPD, vous disposez d&apos;un droit
+              d&apos;accès, de rectification et de suppression de vos données.
             </p>
           </section>
 

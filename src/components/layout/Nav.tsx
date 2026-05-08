@@ -72,7 +72,7 @@ export function Nav() {
 
         <div className="hidden md:block">
           <Button as="link" href="/contact" variant="primary">
-            Devis
+            Bilan offert
           </Button>
         </div>
 
@@ -130,7 +130,7 @@ export function Nav() {
               className="mt-4"
             >
               <Button as="link" href="/contact" variant="primary">
-                Demander un devis
+                Réserver mon bilan offert
               </Button>
             </motion.div>
           </motion.div>
