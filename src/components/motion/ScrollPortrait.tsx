@@ -14,7 +14,6 @@ const SPRING = { stiffness: 120, damping: 30, mass: 0.6 };
 
 export function ScrollPortrait({ src, alt, fallback, className }: ScrollPortraitProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
 
   const { scrollYProgress } = useScroll({
@@ -24,20 +23,20 @@ export function ScrollPortrait({ src, alt, fallback, className }: ScrollPortrait
 
   const smooth = useSpring(scrollYProgress, SPRING);
 
-  const imageY = useTransform(smooth, [0, 1], ["-8%", "8%"]);
-  const imageScale = useTransform(smooth, [0, 0.5, 1], [1.18, 1.06, 1.18]);
-  const tilt = useTransform(smooth, [0, 0.5, 1], [-6, 0, 6]);
-  const grayscale = useTransform(smooth, [0, 0.4, 0.55, 1], [0.6, 0, 0, 0.6]);
+  const imageY = useTransform(smooth, [0, 1], ["-6%", "6%"]);
+  const imageScale = useTransform(smooth, [0, 0.5, 1], [1.14, 1.04, 1.14]);
+  const tilt = useTransform(smooth, [0, 0.5, 1], [-4, 0, 4]);
+  const grayscale = useTransform(smooth, [0, 0.4, 0.55, 1], [0.55, 0, 0, 0.55]);
   const filter = useTransform(grayscale, (g) => `grayscale(${g}) saturate(${1 + (1 - g) * 0.2})`);
-  const overlayOpacity = useTransform(smooth, [0, 0.5, 1], [0.55, 0.15, 0.55]);
+  const overlayOpacity = useTransform(smooth, [0, 0.5, 1], [0.45, 0.1, 0.45]);
   const sweepX = useTransform(smooth, [0, 1], ["-120%", "220%"]);
   const ringRotate = useTransform(smooth, [0, 1], [0, 360]);
   const ringOpacity = useTransform(smooth, [0, 0.2, 0.8, 1], [0, 0.7, 0.7, 0]);
 
   return (
     <div ref={ref} className={`relative ${className ?? ""}`}>
-      {(!loaded || errored) && (
-        <div className="absolute inset-0 flex items-center justify-center">
+      {fallback && (
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           {fallback}
         </div>
       )}
@@ -51,7 +50,6 @@ export function ScrollPortrait({ src, alt, fallback, className }: ScrollPortrait
           <img
             src={src}
             alt={alt}
-            onLoad={() => setLoaded(true)}
             onError={() => setErrored(true)}
             className="h-full w-full object-cover"
             draggable={false}
@@ -61,7 +59,7 @@ export function ScrollPortrait({ src, alt, fallback, className }: ScrollPortrait
 
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent"
         style={{ opacity: overlayOpacity }}
       />
 
