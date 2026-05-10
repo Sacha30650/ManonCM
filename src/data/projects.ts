@@ -29,7 +29,7 @@ export const projects: Project[] = [
     year: "2025",
     description:
       "Affiche d'une soirée à thème — codes nightlife, contraste fort, hiérarchie info ultra lisible.",
-    cover: "/projects/711-rock-vs-sbk.svg",
+    cover: "/projects/711-rock-vs-sbk.jpg",
     size: "tall",
   },
   {
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     year: "2025",
     description:
       "Beach party signature — palette pastel, ambiance estivale et identité club préservée.",
-    cover: "/projects/711-beach-rose.svg",
+    cover: "/projects/711-beach-rose.jpg",
     size: "wide",
   },
   {
@@ -53,7 +53,7 @@ export const projects: Project[] = [
     year: "2025",
     description:
       "Communication d'un séjour fitness all-in : flyer, posts Instagram, programme détaillé.",
-    cover: "/projects/fit-and-dance.svg",
+    cover: "/projects/fit-and-dance.jpg",
     size: "square",
   },
   {
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     year: "2024",
     description:
       "Carrousels Instagram + ebook PDF complet pour un programme de transformation 8 semaines.",
-    cover: "/projects/level-up.svg",
+    cover: "/projects/level-up.jpg",
     size: "wide",
   },
   {
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     categoryLabel: "Coaching",
     year: "2024",
     description: "Identité d'une coach indépendante : carte de visite, flyer et premiers posts.",
-    cover: "/projects/manon-coach.svg",
+    cover: "/projects/manon-coach.jpg",
     size: "tall",
   },
   {
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     year: "2024",
     description:
       "Menus, grille tarifaire et contenus Instagram pour un restaurant healthy en ouverture.",
-    cover: "/projects/eat-fit.svg",
+    cover: "/projects/eat-fit.jpg",
     size: "square",
   },
   {
@@ -99,7 +99,7 @@ export const projects: Project[] = [
     categoryLabel: "Coaching",
     year: "2024",
     description: "Mise en page de séances détaillées : tableaux d'exercices, repères de séries.",
-    cover: "/projects/cardio-sculpt.svg",
+    cover: "/projects/cardio-sculpt.jpg",
     size: "tall",
   },
   {
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     categoryLabel: "Événementiel",
     year: "2024",
     description: "Série de visuels Stories pour la saison estivale — déclinaisons rapides.",
-    cover: "/projects/711-summer.svg",
+    cover: "/projects/711-summer.jpg",
     size: "wide",
   },
 ];
