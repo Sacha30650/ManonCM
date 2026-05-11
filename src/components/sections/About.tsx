@@ -25,7 +25,7 @@ export function About() {
             </div>
             <div className="mt-5 flex items-center justify-between text-eyebrow text-text-muted">
               <span>Manon Almudever</span>
-              <span>PACA, France</span>
+              <span>Loire, France</span>
             </div>
           </FadeInWhenVisible>
 
@@ -63,7 +63,7 @@ export function About() {
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border pt-8 text-sm">
                 <div className="flex flex-col gap-1">
                   <span className="text-eyebrow text-text-muted">Basée à</span>
-                  <span className="text-text-primary">Vaucluse · PACA</span>
+                  <span className="text-text-primary">La Grand-Croix · Loire</span>
                 </div>
                 <div className="hidden h-8 w-px bg-border md:block" aria-hidden="true" />
                 <div className="flex flex-col gap-1">
@@ -73,7 +73,7 @@ export function About() {
                 <div className="hidden h-8 w-px bg-border md:block" aria-hidden="true" />
                 <div className="flex flex-col gap-1">
                   <span className="text-eyebrow text-text-muted">Format</span>
-                  <span className="text-text-primary">Visio + sur place PACA</span>
+                  <span className="text-text-primary">Visio + sur place Loire</span>
                 </div>
               </div>
             </FadeInWhenVisible>

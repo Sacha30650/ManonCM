@@ -27,7 +27,7 @@ export const faqs: FAQ[] = [
   {
     question: "Travaillez-vous à distance ou en présentiel ?",
     answer:
-      "100% à distance par défaut, ce qui me permet d'accompagner des clients partout en France. Sur Avignon et le Vaucluse, on peut se voir pour les projets qui le justifient.",
+      "100% à distance par défaut, ce qui me permet d'accompagner des clients partout en France. Sur Saint-Étienne, Lyon et la région Auvergne-Rhône-Alpes, on peut se voir pour les projets qui le justifient.",
   },
   {
     question: "Que se passe-t-il si je ne suis pas satisfait ?",
