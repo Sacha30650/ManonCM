@@ -19,13 +19,29 @@ export default function MentionsLegalesPage() {
         </header>
 
         <div className="flex flex-col gap-8 text-base text-text-secondary">
-          <section className="flex flex-col gap-2">
+          <section className="flex flex-col gap-3">
             <h2 className="text-display text-2xl text-text-primary">Éditeur du site</h2>
             <p>
               Le site <strong className="text-text-primary">makemyvisu.fr</strong> (Make my visu)
-              est édité par Manon Almu, micro-entrepreneuse en région PACA (France).
+              est édité par Manon Almudever, micro-entrepreneuse.
             </p>
-            <p>Email : almudever.manon@gmail.com</p>
+            <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm md:text-base">
+              <dt className="text-text-muted">Adresse</dt>
+              <dd className="text-text-primary">695 rue de la Péronnière, 42320 La Grand-Croix</dd>
+              <dt className="text-text-muted">SIREN</dt>
+              <dd className="text-text-primary">794 365 338</dd>
+              <dt className="text-text-muted">Email</dt>
+              <dd className="text-text-primary">
+                <a
+                  href="mailto:almudever.manon@gmail.com"
+                  className="transition-colors hover:text-accent"
+                >
+                  almudever.manon@gmail.com
+                </a>
+              </dd>
+              <dt className="text-text-muted">Directrice de publication</dt>
+              <dd className="text-text-primary">Manon Almudever</dd>
+            </dl>
           </section>
 
           <section className="flex flex-col gap-2">
@@ -37,7 +53,7 @@ export default function MentionsLegalesPage() {
             <h2 className="text-display text-2xl text-text-primary">Propriété intellectuelle</h2>
             <p>
               L&apos;ensemble des contenus présents sur ce site (textes, visuels, logos,
-              illustrations) est la propriété de Manon Almu, sauf mention contraire. Toute
+              illustrations) est la propriété de Manon Almudever, sauf mention contraire. Toute
               reproduction sans autorisation préalable est interdite.
             </p>
           </section>
