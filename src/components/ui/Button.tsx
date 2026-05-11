@@ -37,7 +37,10 @@ export function Button(props: ButtonProps) {
   const classes = `${baseClasses} ${variants[variant]} ${className ?? ""}`.trim();
 
   if (props.as === "link") {
-    const { href, external, ...linkRest } = rest as Omit<ButtonAsLink, "variant" | "children" | "as" | "className">;
+    const { href, external, as: _as, ...linkRest } = rest as ButtonAsLink & {
+      as?: "link";
+    };
+    void _as;
     if (external) {
       return (
         <a
@@ -58,7 +61,10 @@ export function Button(props: ButtonProps) {
     );
   }
 
-  const buttonRest = rest as ComponentPropsWithoutRef<"button">;
+  const { as: _btnAs, ...buttonRest } = rest as ComponentPropsWithoutRef<"button"> & {
+    as?: "button";
+  };
+  void _btnAs;
   return (
     <button {...buttonRest} className={classes}>
       {children}
