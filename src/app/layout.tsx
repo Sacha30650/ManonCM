@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     template: "%s | Make my visu",
   },
   description:
-    "Créatrice de visuels marketing en PACA. Affiches événementielles, flyers, contenus Instagram pour restaurants, coachs et commerces. Bilan stratégique offert.",
+    "Créatrice de visuels marketing basée en Loire (Auvergne-Rhône-Alpes). Affiches événementielles, flyers, contenus Instagram pour restaurants, coachs et commerces. Bilan stratégique offert.",
   keywords: [
-    "graphiste freelance Vaucluse",
+    "graphiste freelance Loire",
     "création visuels Instagram",
     "flyer événementiel restaurant",
-    "community manager Avignon",
+    "community manager Saint-Étienne",
     "affiche soirée club",
-    "visuels marketing PACA",
+    "visuels marketing Auvergne-Rhône-Alpes",
   ],
   authors: [{ name: "Make my visu" }],
   creator: "Make my visu",
@@ -94,7 +94,15 @@ export default function RootLayout({
     email: "almudever.manon@gmail.com",
     description:
       "Créatrice de visuels marketing : affiches, flyers, contenus Instagram pour restaurants, coachs et commerces.",
-    areaServed: { "@type": "AdministrativeArea", name: "PACA, France" },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "695 rue de la Péronnière",
+      addressLocality: "La Grand-Croix",
+      postalCode: "42320",
+      addressRegion: "Loire",
+      addressCountry: "FR",
+    },
+    areaServed: { "@type": "AdministrativeArea", name: "Auvergne-Rhône-Alpes, France" },
     priceRange: "€€",
     sameAs: ["https://www.instagram.com/makemyvisu"],
   };

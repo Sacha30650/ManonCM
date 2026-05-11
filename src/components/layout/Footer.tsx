@@ -71,7 +71,7 @@ export function Footer() {
               >
                 @makemyvisu
               </a>
-              <span className="text-text-secondary">PACA · France</span>
+              <span className="text-text-secondary">Loire · France</span>
             </div>
             <Link
               href="/contact"
@@ -97,7 +97,7 @@ export function Footer() {
                 {link.label}
               </Link>
             ))}
-            <span>Site conçu en PACA</span>
+            <span>Site conçu en Loire</span>
           </div>
         </div>
       </div>
