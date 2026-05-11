@@ -1,7 +1,7 @@
 import { FadeInWhenVisible } from "@/components/motion/FadeInWhenVisible";
 import { CalendlyEmbed } from "@/components/ui/CalendlyEmbed";
 
-export const CALENDLY_URL = "https://calendly.com/manon-almudever/bilan-strategique";
+export const CALENDLY_URL = "https://calendly.com/almudever42/bilan-strategique-offert";
 
 const benefits = [
   {
