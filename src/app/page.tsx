@@ -7,11 +7,13 @@ import { PortfolioPreview } from "@/components/sections/PortfolioPreview";
 import { Pricing } from "@/components/sections/Pricing";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
+import { getHero } from "@/data/hero";
 
 export default function HomePage() {
+  const hero = getHero();
   return (
     <>
-      <Hero />
+      <Hero data={hero} />
       <About />
       <Services />
       <PortfolioPreview />
