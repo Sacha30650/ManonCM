@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { PortfolioGallery } from "@/components/sections/PortfolioGallery";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/portfolio" },
 };
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  const projects = await getProjects();
   return (
     <section className="section-padding pt-36 md:pt-44">
       <div className="container-page flex flex-col gap-10">

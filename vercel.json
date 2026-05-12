@@ -3,6 +3,7 @@
   "framework": "nextjs",
   "buildCommand": "next build",
   "installCommand": "npm install",
+  "ignoreCommand": "bash scripts/should-skip-deploy.sh",
   "regions": ["cdg1"],
   "git": {
     "deploymentEnabled": {

@@ -68,7 +68,13 @@ export async function POST(request: Request) {
     const bytes = await file.arrayBuffer();
     const base64 = Buffer.from(bytes).toString("base64");
     await commitBinaryFile(path, base64, `admin: upload ${fileName}`);
-    return NextResponse.json({ ok: true, url: publicUrl, path });
+    return NextResponse.json({
+      ok: true,
+      url: publicUrl,
+      path,
+      note:
+        "Image uploadée sur GitHub. Elle sera visible sur le site après le redéploiement (~1 minute).",
+    });
   } catch (err) {
     console.error("[admin/upload-image] error", err);
     const detail = err instanceof Error ? err.message : "Erreur inconnue.";

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { FAQ } from "@/components/sections/FAQ";
 import { Pricing } from "@/components/sections/Pricing";
+import { getPricing } from "@/data/pricing";
 
 export const metadata: Metadata = {
   title: "Tarifs",
@@ -10,10 +11,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tarifs" },
 };
 
-export default function TarifsPage() {
+export default async function TarifsPage() {
+  const pricing = await getPricing();
   return (
     <div className="pt-32 md:pt-40">
-      <Pricing />
+      <Pricing data={pricing} />
       <FAQ />
     </div>
   );
