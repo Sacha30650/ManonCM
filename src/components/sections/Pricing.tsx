@@ -1,9 +1,14 @@
 import { FadeInWhenVisible } from "@/components/motion/FadeInWhenVisible";
 import { Button } from "@/components/ui/Button";
 import { PricingCard } from "@/components/ui/PricingCard";
-import { packs, unitItems } from "@/data/pricing";
+import type { Pack, UnitItem } from "@/data/pricing-types";
 
-export function Pricing() {
+type PricingProps = {
+  data: { packs: Pack[]; unitItems: UnitItem[] };
+};
+
+export function Pricing({ data }: PricingProps) {
+  const { packs, unitItems } = data;
   return (
     <section id="tarifs" className="section-padding-lg relative bg-surface">
       <div className="container-page flex flex-col gap-16">

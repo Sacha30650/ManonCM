@@ -2,9 +2,9 @@ import Link from "next/link";
 
 import { FadeInWhenVisible } from "@/components/motion/FadeInWhenVisible";
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { projects } from "@/data/projects";
+import type { Project } from "@/data/project-types";
 
-export function PortfolioPreview() {
+export function PortfolioPreview({ projects }: { projects: Project[] }) {
   const featured = projects.slice(0, 6);
 
   return (

@@ -8,17 +8,23 @@ import { Pricing } from "@/components/sections/Pricing";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { getHero } from "@/data/hero";
+import { getPricing } from "@/data/pricing";
+import { getProjects } from "@/data/projects";
 
-export default function HomePage() {
-  const hero = getHero();
+export default async function HomePage() {
+  const [hero, pricing, projects] = await Promise.all([
+    getHero(),
+    getPricing(),
+    getProjects(),
+  ]);
   return (
     <>
       <Hero data={hero} />
       <About />
       <Services />
-      <PortfolioPreview />
+      <PortfolioPreview projects={projects} />
       <Method />
-      <Pricing />
+      <Pricing data={pricing} />
       <Testimonials />
       <FAQ />
       <ContactCTA />

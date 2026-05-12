@@ -1,7 +1,6 @@
 import "server-only";
-import fs from "node:fs";
-import path from "node:path";
 
+import { CONTENT_TAGS, loadJson } from "@/lib/content-loader";
 import type { Pack, UnitItem } from "./pricing-types";
 
 export type { Pack, UnitItem } from "./pricing-types";
@@ -11,12 +10,11 @@ type PricingData = {
   unitItems: UnitItem[];
 };
 
-function loadPricing(): PricingData {
-  const file = path.join(process.cwd(), "content/pricing.json");
-  if (!fs.existsSync(file)) return { packs: [], unitItems: [] };
-  return JSON.parse(fs.readFileSync(file, "utf8")) as PricingData;
-}
+const EMPTY: PricingData = { packs: [], unitItems: [] };
 
-const data = loadPricing();
-export const packs: Pack[] = data.packs;
-export const unitItems: UnitItem[] = data.unitItems;
+export async function getPricing(): Promise<PricingData> {
+  const data = await loadJson<PricingData>("content/pricing.json", [
+    CONTENT_TAGS.pricing,
+  ]);
+  return data ?? EMPTY;
+}
