@@ -14,7 +14,7 @@ export function About() {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm border border-border bg-surface">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/manon-portrait.jpg"
+                src="/manon-portrait.JPG"
                 alt="Manon Almu, créatrice de visuels Make my visu"
                 className="absolute inset-0 h-full w-full object-cover"
               />
