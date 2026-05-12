@@ -100,37 +100,48 @@ Les 6 premiers projets de la liste apparaissent sur la homepage, tous sur `/port
 - `src/data/faq.ts`
 - `src/data/testimonials.ts`
 
-## Configurer TinaCMS (admin de contenu pour Manon)
+## Admin pour Manon (`/admin`)
 
-L'admin TinaCMS permet à Manon d'éditer ses projets portfolio (titres, images, descriptions) directement depuis son navigateur sans toucher au code.
+Une interface dédiée permet à Manon de modifier les **photos / titres du portfolio**, le **texte d'accueil** (Hero) et les **tarifs** sans toucher au code. Toutes les modifications sont commit automatiquement sur GitHub via l'API, et Vercel redéploie le site sous ~1 minute.
 
 ### Setup initial (une fois)
 
-1. Crée un compte gratuit sur [app.tina.io](https://app.tina.io) (option "Sign up with GitHub")
-2. **"Create Project"** :
-   - Connecte le repo GitHub `Sacha30650/ManonCM`
-   - Branche : `main`
-   - Path to config : `tina`
-3. Récupère deux valeurs dans **Project Settings** :
-   - `Client ID` (visible en haut)
-   - `Token` → **Tokens** tab → **Generate** un nouveau read+write token
-4. Ajoute-les dans **Vercel → Settings → Environment Variables** :
-   - `NEXT_PUBLIC_TINA_CLIENT_ID` = valeur du Client ID
-   - `TINA_TOKEN` = valeur du Token
-5. **Redeploy** sur Vercel pour activer l'admin
+1. **Générer un GitHub Personal Access Token (PAT)** :
+   - [github.com/settings/tokens?type=beta](https://github.com/settings/tokens?type=beta) → **"Generate new token"** (fine-grained)
+   - Resource owner : **Sacha30650** (propriétaire du repo)
+   - Repository access : **Only select repositories** → `ManonCM`
+   - Permissions : sous *Repository permissions*, mets **Contents** sur **Read and write**
+   - Generate → copie le token (commence par `github_pat_...`)
 
-### Utiliser l'admin
+2. **Ajouter sur Vercel → Settings → Environment Variables** (scope : tous environnements) :
+   - `ADMIN_PASSWORD` = un mot de passe long et fort que tu choisis (à donner à Manon)
+   - `GITHUB_TOKEN` = le PAT généré à l'étape 1
+   - `GITHUB_OWNER` = `Sacha30650` (optionnel, valeur par défaut)
+   - `GITHUB_REPO` = `ManonCM` (optionnel)
+   - `GITHUB_BRANCH` = `main` (optionnel)
 
-- Va sur `makemyvisu.fr/admin/index.html`
-- Connecte-toi avec ton compte Tina
-- Édite tes projets, sauvegarde → ça commit auto sur GitHub → Vercel redéploie sous ~1 min
+3. **Redeploy** sur Vercel sans cache pour appliquer les variables.
 
-### Local dev (édition de contenu en local)
+### Utilisation pour Manon
 
-```bash
-npm run tina:dev   # Lance Tina + Next.js ensemble
-# → Admin sur http://localhost:3000/admin/index.html
-```
+1. Va sur `makemyvisu.fr/admin`
+2. Tape le mot de passe → arrive sur le dashboard
+3. 3 onglets : **Portfolio** (photos / titres / catégories), **Accueil** (Hero), **Tarifs**
+4. Modifie, clique **"Sauvegarder"** → GitHub reçoit le commit → Vercel redéploie automatiquement
+5. Sous ~1 minute, les changements sont visibles sur le site
+
+### Sécurité
+
+- Le mot de passe est stocké dans la variable d'env `ADMIN_PASSWORD` (jamais dans le code)
+- Le cookie de session est HMAC-signé et expire après 30 jours
+- Le PAT GitHub est fine-grained (limité à ce seul repo)
+- La route `/admin` est marquée `noindex` côté SEO
+
+### Limites
+
+- Upload image max 4,5 Mo (limite Vercel serverless Hobby)
+- Formats acceptés : JPG / PNG / WebP
+- Si Manon veut éditer d'autres sections (services, méthode, FAQ, témoignages), elle te demande, tu modifies le code en 5 min
 
 ## Configurer Calendly (prise de rendez-vous)
 

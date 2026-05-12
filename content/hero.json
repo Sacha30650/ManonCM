@@ -1,0 +1,25 @@
+{
+  "kicker": "Make my visu · Studio créatif",
+  "headlinePrimary": "DES VISUELS QUI",
+  "headlineAccent": "CONVERTISSENT.",
+  "subheadline": "VOS PROSPECTS EN CLIENTS.",
+  "description": "Affiches, flyers et contenus Instagram conçus pour transformer ta communication en machine à attirer des clients. Pour les restaurants, coachs et commerces qui veulent qu'on les remarque.",
+  "ctaPrimaryLabel": "Réserver mon bilan offert",
+  "ctaPrimaryHref": "/contact",
+  "ctaSecondaryLabel": "Voir le portfolio",
+  "ctaSecondaryHref": "#portfolio",
+  "specialitiesLabel": "Spécialités",
+  "specialities": [
+    "Affiches événementielles",
+    "Flyers commerce",
+    "Contenus Instagram",
+    "Identités visuelles"
+  ],
+  "tagline": "Le visuel doit faire vendre, pas juste décorer.",
+  "stats": [
+    { "value": "30+", "label": "Clients" },
+    { "value": "150+", "label": "Visuels" },
+    { "value": "4", "label": "Secteurs" },
+    { "value": "24h", "label": "Réponse" }
+  ]
+}

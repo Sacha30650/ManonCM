@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/Button";
-import type { Pack } from "@/data/pricing";
+import type { Pack } from "@/data/pricing-types";
 
 type PricingCardProps = {
   pack: Pack;

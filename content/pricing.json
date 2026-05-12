@@ -1,0 +1,42 @@
+{
+  "packs": [
+    {
+      "id": "essentiel",
+      "name": "Pack Visuel Essentiel",
+      "price": "120 — 180€",
+      "highlight": false,
+      "features": ["1 affiche OU 1 flyer", "3 posts Instagram", "Fichiers prêts à diffuser"]
+    },
+    {
+      "id": "instagram",
+      "name": "Pack Instagram",
+      "price": "150 — 250€",
+      "highlight": false,
+      "features": [
+        "8 posts Instagram",
+        "Création visuelle + textes",
+        "Cohérence du feed assurée"
+      ]
+    },
+    {
+      "id": "complet",
+      "name": "Pack Complet",
+      "price": "250 — 400€",
+      "highlight": true,
+      "badge": "Populaire",
+      "features": [
+        "1 affiche ou flyer",
+        "8 posts Instagram",
+        "Publication incluse",
+        "Suivi & ajustements"
+      ]
+    }
+  ],
+  "unitItems": [
+    { "label": "Affiche événementielle", "range": "40€ — 80€" },
+    { "label": "Flyer", "range": "50€ — 100€" },
+    { "label": "Visuel Instagram (post)", "range": "15€ — 30€" },
+    { "label": "Carrousel Instagram (3-5 slides)", "range": "40€ — 80€" },
+    { "label": "Menu / grille tarifaire", "range": "60€ — 150€" }
+  ]
+}

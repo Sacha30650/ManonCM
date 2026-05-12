@@ -5,19 +5,11 @@ import { useRef } from "react";
 
 import { Button } from "@/components/ui/Button";
 import { NoiseOverlay } from "@/components/ui/NoiseOverlay";
+import type { HeroData } from "@/data/hero-types";
 
-const headlinePrimary = ["DES", "VISUELS", "QUI"];
-const headlineAccent = "CONVERTISSENT.";
-const subheadline = ["VOS", "PROSPECTS", "EN", "CLIENTS."];
+type HeroProps = { data: HeroData };
 
-const stats = [
-  { v: "30+", k: "Clients" },
-  { v: "150+", k: "Visuels" },
-  { v: "4", k: "Secteurs" },
-  { v: "24h", k: "Réponse" },
-];
-
-export function Hero() {
+export function Hero({ data }: HeroProps) {
   const reduced = useReducedMotion();
   const ref = useRef<HTMLElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -26,6 +18,9 @@ export function Hero() {
   });
   const parallaxY = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : 80]);
   const fade = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
+  const headlinePrimaryWords = data.headlinePrimary.split(/\s+/).filter(Boolean);
+  const subheadlineWords = data.subheadline.split(/\s+/).filter(Boolean);
 
   return (
     <section
@@ -59,13 +54,11 @@ export function Hero() {
               className="flex items-center gap-4"
             >
               <span className="accent-rule" aria-hidden="true" />
-              <span className="text-eyebrow text-accent-soft">
-                Make my visu · Studio créatif
-              </span>
+              <span className="text-eyebrow text-accent-soft">{data.kicker}</span>
             </motion.div>
 
             <h1 className="text-display text-mega mt-8 max-w-[14ch] text-text-primary">
-              {headlinePrimary.map((w, i) => (
+              {headlinePrimaryWords.map((w, i) => (
                 <motion.span
                   key={w + i}
                   initial={{ opacity: 0, y: 28 }}
@@ -84,10 +77,10 @@ export function Hero() {
                 className="font-serif text-[0.85em] italic text-accent"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
-                {headlineAccent}
+                {data.headlineAccent}
               </motion.span>
               <br />
-              {subheadline.map((w, i) => (
+              {subheadlineWords.map((w, i) => (
                 <motion.span
                   key={w + i + "b"}
                   initial={{ opacity: 0, y: 28 }}
@@ -110,9 +103,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.85 }}
               className="mt-10 max-w-xl text-base text-text-secondary md:text-lg"
             >
-              Affiches, flyers et contenus Instagram conçus pour transformer ta communication
-              en machine à attirer des clients. Pour les restaurants, coachs et commerces qui
-              veulent qu&apos;on les remarque.
+              {data.description}
             </motion.p>
 
             <motion.div
@@ -121,11 +112,11 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 1 }}
               className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4"
             >
-              <Button as="link" href="/contact" variant="primary">
-                Réserver mon bilan offert
+              <Button as="link" href={data.ctaPrimaryHref} variant="primary">
+                {data.ctaPrimaryLabel}
               </Button>
-              <Button as="link" href="#portfolio" variant="ghost">
-                Voir le portfolio
+              <Button as="link" href={data.ctaSecondaryHref} variant="ghost">
+                {data.ctaSecondaryLabel}
                 <span aria-hidden="true" className="transition-transform">
                   →
                 </span>
@@ -139,16 +130,15 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 1.1 }}
             className="hidden flex-col gap-6 lg:flex"
           >
-            <span className="text-eyebrow text-text-muted">Spécialités</span>
+            <span className="text-eyebrow text-text-muted">{data.specialitiesLabel}</span>
             <ul className="flex flex-col gap-2 text-right text-sm text-text-secondary">
-              <li>Affiches événementielles</li>
-              <li>Flyers commerce</li>
-              <li>Contenus Instagram</li>
-              <li>Identités visuelles</li>
+              {data.specialities.map((s) => (
+                <li key={s}>{s}</li>
+              ))}
             </ul>
             <div className="ml-auto h-px w-16 bg-border-strong" aria-hidden="true" />
             <p className="ml-auto max-w-[18ch] text-right font-serif text-base italic text-accent-soft">
-              Le visuel doit faire vendre, pas juste décorer.
+              {data.tagline}
             </p>
           </motion.aside>
         </div>
@@ -159,15 +149,15 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.3 }}
           className="mt-20 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-10 md:mt-24 md:grid-cols-4"
         >
-          {stats.map((s, i) => (
+          {data.stats.map((s, i) => (
             <div
-              key={s.k}
+              key={s.label}
               className="flex items-baseline gap-3 md:flex-col md:items-start md:gap-1"
             >
               <span className="editorial-num">{String(i + 1).padStart(2, "0")}</span>
               <div>
-                <p className="text-display text-3xl text-text-primary md:text-4xl">{s.v}</p>
-                <p className="mt-1 text-eyebrow text-text-muted">{s.k}</p>
+                <p className="text-display text-3xl text-text-primary md:text-4xl">{s.value}</p>
+                <p className="mt-1 text-eyebrow text-text-muted">{s.label}</p>
               </div>
             </div>
           ))}
