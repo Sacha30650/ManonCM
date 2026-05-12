@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { PortfolioGallery } from "@/components/sections/PortfolioGallery";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -19,7 +20,7 @@ export default function PortfolioPage() {
           title="Tous les projets, toutes les marques."
           description="Filtre par secteur pour voir le travail réalisé. Clique sur un projet pour plus de détails."
         />
-        <PortfolioGallery />
+        <PortfolioGallery projects={projects} />
       </div>
     </section>
   );
