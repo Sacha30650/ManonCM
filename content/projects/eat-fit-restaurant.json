@@ -1,0 +1,12 @@
+{
+  "slug": "eat-fit-restaurant",
+  "title": "Eat Fit",
+  "client": "Eat Fit Restaurant",
+  "category": "food",
+  "categoryLabel": "Food",
+  "year": "2024",
+  "description": "Menus, grille tarifaire et contenus Instagram pour un restaurant healthy en ouverture.",
+  "cover": "/projects/eat-fit.jpg",
+  "size": "square",
+  "order": 60
+}

@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 
 import { ProjectCard } from "@/components/ui/ProjectCard";
-import { categoryLabels, projects, type Project, type ProjectCategory } from "@/data/projects";
+import { categoryLabels, type Project, type ProjectCategory } from "@/data/project-types";
 
 type Filter = "all" | ProjectCategory;
 
@@ -16,13 +16,13 @@ const filters: { id: Filter; label: string }[] = [
   { id: "coaching", label: categoryLabels.coaching },
 ];
 
-export function PortfolioGallery() {
+export function PortfolioGallery({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<Filter>("all");
   const [active, setActive] = useState<Project | null>(null);
 
   const filtered = useMemo(
     () => (filter === "all" ? projects : projects.filter((p) => p.category === filter)),
-    [filter],
+    [filter, projects],
   );
 
   return (

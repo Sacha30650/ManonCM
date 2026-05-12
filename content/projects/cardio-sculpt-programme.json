@@ -1,0 +1,12 @@
+{
+  "slug": "cardio-sculpt-programme",
+  "title": "Séances Cardio Sculpt",
+  "client": "Level Up Coaching",
+  "category": "coaching",
+  "categoryLabel": "Coaching",
+  "year": "2024",
+  "description": "Mise en page de séances détaillées : tableaux d'exercices, repères de séries.",
+  "cover": "/projects/cardio-sculpt.jpg",
+  "size": "tall",
+  "order": 70
+}

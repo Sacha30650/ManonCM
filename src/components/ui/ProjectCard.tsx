@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import type { Project } from "@/data/projects";
+import type { Project } from "@/data/project-types";
 
 const sizeClasses: Record<NonNullable<Project["size"]>, string> = {
   wide: "md:col-span-2 aspect-[16/10]",
